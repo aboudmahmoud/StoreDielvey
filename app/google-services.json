@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "240858963061",
+    "project_id": "dilavryapp",
+    "storage_bucket": "dilavryapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240858963061:android:747803fd54f5507bb2ac3c",
+        "android_client_info": {
+          "package_name": "com.example.deliveryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240858963061-msh7fidq4oe831c2emc81lhf9feiq6ro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe9C8nh4zzlkdTkDEc1prTB30tSgoq_F8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240858963061-msh7fidq4oe831c2emc81lhf9feiq6ro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
