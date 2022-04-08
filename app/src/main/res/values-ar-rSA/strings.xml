@@ -45,4 +45,14 @@
     <string name="Signin">سجل</string>
     <string name="less">اون ان تكون كلمة السر اقل من 7 ارقام</string>
     <string name="add_to_cart">اضف الي السلة</string>
+    <string name="wait">انتظر</string>
+    <string name="abdlrhman_mahmoud_elsyed">عبدالرحمن محمود السيد</string>
+    <string name="software_developer">مطور برمجيات</string>
+    <string name="about_the_app">عن البرنامج</string>
+    <string name="it_is_an_application_to_add_products_where_the_application_allows_to_add_details_such_as_price_product_image_and_product_company">هو تطبيق عبارة عن اضافة واظهار المنتجات حيث يمكنك اضافة تصافيل المنتج مثل السعر والصوره واظهاره في التطبيق وفي اي مكان</string>
+    <string name="the_application_consists_of_6_pages">التطبيق يحتوي علي 6 صفحات </string>
+    <string name="the_code_was_written_by_java_programming_language_with_the_use_of_architecture_mvp_mvvm_amp_using_firebase_as_a_database_and_stroeg_for_images">عملية التكويد في هذا التطبيق بلغة الجافا واستخدم قاعدة بيانات فايربيس لتخزين البيانات وايضا لتخزين الصور كمركز ملف </string>
+    <string name="license">رخصة استخدام البرنامج :</string>
+    <string name="uses">يمكنك استخدام البرنامج بشكل طبيعي واذا كنت مبرمج يكنك الاطلاع علي الاكواد الخاص بالتطبيق عبر الضغط علي ايقونة مستودع جيت هاب  يمكنك تجرتبته واستخدامه لكن الاستخدام التجاري او الشخصي غير ممكن نظرا لان تخزين الدتا تتم بشكل محدود علي فاير بيس </string>
+    <string name="contact">اذا كنت تريد استخدام التطبيق بشكل تجاري او شخصي \n اذا لديك هوست لقاعدة بيانات خاصة بك او لا \n اذا كنت تريد تعديل في التطبيق او اضافة عليه \n او شئ اخر  \n يمكنك التواصل معي بشكل خاص عبر التيلجرام </string>
 </resources>

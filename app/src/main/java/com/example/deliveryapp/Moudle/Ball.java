@@ -1,46 +1,39 @@
 package com.example.deliveryapp.Moudle;
 
-import java.util.HashMap;
+
 
 public class Ball {
+ProducteInfo producteInfo;
+double TotalPrice;
+int Qunaty;
 
-    String ProudteName,ProductePrice,TotalProductePrice;
-    int ProudcteQunaty;
-
-    public String getTotalProductePrice() {
-        return TotalProductePrice;
+    public Ball(ProducteInfo producteInfo, double totalPrice, int qunaty) {
+        this.producteInfo = producteInfo;
+        TotalPrice = totalPrice;
+        Qunaty = qunaty;
     }
 
-    public void setTotalProductePrice(String totalProductePrice) {
-        TotalProductePrice = totalProductePrice;
+    public ProducteInfo getProducteInfo() {
+        return producteInfo;
     }
 
-    public Ball() {
+    public void setProducteInfo(ProducteInfo producteInfo) {
+        this.producteInfo = producteInfo;
     }
 
-
-
-    public String getProudteName() {
-        return ProudteName;
+    public double getTotalPrice() {
+        return TotalPrice;
     }
 
-    public void setProudteName(String proudteName) {
-        ProudteName = proudteName;
+    public void setTotalPrice(double totalPrice) {
+        TotalPrice = totalPrice;
     }
 
-    public String getProductePrice() {
-        return ProductePrice;
+    public int getQunaty() {
+        return Qunaty;
     }
 
-    public void setProductePrice(String productePrice) {
-        ProductePrice = productePrice;
-    }
-
-    public int getProudcteQunaty() {
-        return ProudcteQunaty;
-    }
-
-    public void setProudcteQunaty(int proudcteQunaty) {
-        ProudcteQunaty = proudcteQunaty;
+    public void setQunaty(int qunaty) {
+        Qunaty = qunaty;
     }
 }

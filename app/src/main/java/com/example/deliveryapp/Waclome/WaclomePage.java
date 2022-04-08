@@ -45,6 +45,13 @@ ActivityWaclomePageBinding binding;
                     startActivity(intent);
                 }
             });
+            binding.btnAboutme.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent= new Intent(WaclomePage.this, AboutMe.class);
+                    startActivity(intent);
+                }
+            });
         }
         catch (Exception ex)
         {

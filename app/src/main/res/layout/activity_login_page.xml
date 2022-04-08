@@ -85,10 +85,10 @@ android:layout_gravity="center"
                 android:text="@string/you_don_t_have_account" />
 
             <TextView
-                android:id="@+id/textLogin"
+                android:id="@+id/textSign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onCLicke"
+
                 android:clickable="true"
                 android:text="@string/Signin" />
         </LinearLayout>

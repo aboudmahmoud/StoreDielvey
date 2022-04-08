@@ -45,4 +45,15 @@
     <string name="Signin">Sign In</string>
     <string name="less">Or Password Less than 7</string>
     <string name="add_to_cart">Add To Cart</string>
+    <string name="wait">Wait</string>
+    <string name="abdlrhman_mahmoud_elsyed">Abdlrhman Mahmoud Elsyed</string>
+    <string name="software_developer">Software Developer</string>
+    <string name="about_the_app">About The App</string>
+    <string name="it_is_an_application_to_add_products_where_the_application_allows_to_add_details_such_as_price_product_image_and_product_company">It is an application to add products where the application allows to add details such as price, product image and product company</string>
+    <string name="the_application_consists_of_6_pages">The application consists of 6 pages</string>
+    <string name="the_code_was_written_by_java_programming_language_with_the_use_of_architecture_mvp_mvvm_amp_using_firebase_as_a_database_and_stroeg_for_images"><![CDATA[The code was written by Java programming language With the use of architecture MVP + MVVM & Using Firebase as a database and Storage For Images]]></string>
+    <string name="license">License to use the ِApp:</string>
+    <string name="uses">you can see the soruce code by clicking github Repositories icon and for the using the app you can use and try it but for actual or commercial use you can\'t do that Due to limited storage, read and write rates for Firebase free membership</string>
+    <string name="contact">If you want to use this program commercially or personally \n Whether you have your own database host or not \n If you want to modify or add something else \n or for another purpose \nYou can contact me via Telegram</string>
+
 </resources>

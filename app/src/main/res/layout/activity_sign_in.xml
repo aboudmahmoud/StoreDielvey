@@ -50,6 +50,7 @@
                     android:drawableStart="@drawable/ic_moudle"
                     android:drawablePadding="@dimen/_10sdp"
                     android:hint="@string/entar_your_full_name"
+
                     android:inputType="text"
                     android:paddingStart="@dimen/_5sdp" />
 
@@ -164,7 +165,6 @@
                     android:id="@+id/textLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onClicke"
                     android:clickable="true"
                     android:text="@string/logine" />
             </LinearLayout>

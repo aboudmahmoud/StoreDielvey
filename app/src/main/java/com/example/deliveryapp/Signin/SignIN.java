@@ -4,7 +4,9 @@ import static java.lang.Integer.parseInt;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +14,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.deliveryapp.FirebaseStore.EmailCheckInfrace;
+import com.example.deliveryapp.FirebaseStore.GetViewModle;
+import com.example.deliveryapp.FirebaseStore.InsertStatus;
 import com.example.deliveryapp.FirebaseStore.StrogPage;
 import com.example.deliveryapp.Login.LoginPage;
 import com.example.deliveryapp.Moudle.userInfo;
@@ -33,25 +38,28 @@ import java.util.ArrayList;
 
 
 public class SignIN extends AppCompatActivity {
-    FirebaseFirestore db;
+
     ActivitySignInBinding binding;
     userInfo user;
     String Fullname, phone, email, adders, password;
     TextInputEditText name, pass, phon, Emal, adder;
     //StrogPage strogPage;
-    ProgressDialog progressDialog;
+
+    AlertDialog alertDialog;
+    GetViewModle mymodel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        db = FirebaseFirestore.getInstance();
+
         name = binding.textName;
         pass = binding.textPass;
         phon = binding.textphone;
         Emal = binding.textEmail;
         adder = binding.textCity;
 
+        mymodel=new ViewModelProvider(this).get(GetViewModle.class);
 
         binding.btnSing.setOnClickListener(new View.OnClickListener() {
 
@@ -101,95 +109,80 @@ public class SignIN extends AppCompatActivity {
               //  Toast.makeText(getApplicationContext(), "ur name is " + Fullname, Toast.LENGTH_LONG).show();
             }
         });
+        binding.textLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(SignIN.this, LoginPage.class);
+                startActivity(intent);
+            }
+        });
     }
-    public void onClicke(View v) {
-        Intent intent= new Intent(SignIN.this, LoginPage.class);
-        startActivity(intent);
-        //finish();
-    }
+
+
+  public void CheckEmail(String Email)
+  {
+
+      alertDialog=
+              new AlertDialog.Builder(this).setTitle(R.string.wait)
+                      .setMessage(getString(R.string.registering))
+                      .setIcon(R.drawable.ic_launcher_background).create();
+      alertDialog.show();
+      mymodel.CheckByEmail(Email, new EmailCheckInfrace() {
+          @Override
+          public void ChecKEmail(int statusUser) {
+              if(statusUser==0)
+              {
+
+
+                  user= new userInfo(Fullname,email,password,adders,phone,0);
+                  InsrteTheData(user);
+              }
+              else
+              {
+                  Toast.makeText(SignIN.this, R.string.errorEmailisExsit,Toast.LENGTH_LONG).show();
+                  if(alertDialog.isShowing())
+                      alertDialog.dismiss();
+
+              }
+          }
+
+          @Override
+          public void messgeError(String Error) {
+              if(alertDialog.isShowing())
+                  alertDialog.dismiss();
+              Toast.makeText(SignIN.this,Error,Toast.LENGTH_LONG).show();
+          }
+      });
+
+
+  }
+
 
     public void InsrteTheData ( userInfo use)
     {
-        db.collection("users")
-                .add(use)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        mymodel.InsertUserData(use, new InsertStatus() {
+            @Override
+            public void insetDataStatus(int Status) {
+                if (Status==0)
+                {
+                    Toast.makeText(SignIN.this, R.string.RegDone,Toast.LENGTH_LONG).show();
+                    name.setText("");
+                    pass.setText("");
+                    phon.setText("");
+                    Emal.setText("");
+                    adder.setText("");
+                    if(alertDialog.isShowing())
+                        alertDialog.dismiss();
 
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        //Log.d("TGHP", "DocumentSnapshot added with ID: " + documentReference.getId());
-                       // System.out.println("Succses");
+                }
+            }
 
-                        name.setText("");
-                        pass.setText("");
-                        phon.setText("");
-                        Emal.setText("");
-                        adder.setText("");
-                        if(progressDialog.isShowing())
-                            progressDialog.dismiss();
-                        Toast.makeText(SignIN.this, R.string.RegDone,Toast.LENGTH_LONG).show();
-                        //   done.countDown();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                        if(progressDialog.isShowing())
-                            progressDialog.dismiss();
-                        Toast.makeText(SignIN.this,  e.getMessage(),Toast.LENGTH_LONG).show();
-
-                    }
-                });
-    }
-
-    public void CheckEmail(String Email)
-    {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle(getString(R.string.registering));
-        progressDialog.show();
-
-        ArrayList<userInfo> users = new ArrayList<>();
-        db.collection("users")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            int count =0;
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-
-                                if (Email.equals(document.get("email")))
-                                {
-                                    count=1;
-
-                                    //statis=count;
-                                }
-
-
-                            }
-                            if(count==0)
-                            {
-                               // Toast.makeText(LoginPage.this,R.string.dosent,Toast.LENGTH_LONG).show();
-                                user= new userInfo(Fullname,email,password,adders,phone,0);
-                                InsrteTheData(user);
-                            }
-                            else
-                            {
-                                Toast.makeText(SignIN.this, R.string.errorEmailisExsit,Toast.LENGTH_LONG).show();
-                                if(progressDialog.isShowing())
-                                    progressDialog.dismiss();
-                            }
-                        } else {
-                         //   Log.w("TAG", "Error getting documents.", task.getException());
-                            Toast.makeText(SignIN.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
-                            if(progressDialog.isShowing())
-                                progressDialog.dismiss();
-                        }
-                    }
-                });
-
-        //  return users;
-
+            @Override
+            public void getErrorMessge(String error) {
+                if(alertDialog.isShowing())
+                    alertDialog.dismiss();
+                Toast.makeText(SignIN.this, error,Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
