@@ -247,7 +247,7 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
                 shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT,  getString(R.string.app_name));
                 String shareMessage= getString(R.string.recmoned);
-                shareMessage = shareMessage + "https://github.com/aboudmahmoud/StoreDielvey" + BuildConfig.APPLICATION_ID +"\n\n";
+                shareMessage = shareMessage + "https://github.com/aboudmahmoud/StoreDielvey  "+"\n\n";
                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                 startActivity(Intent.createChooser(shareIntent, getString(R.string.choes)));
             } catch(Exception e) {
