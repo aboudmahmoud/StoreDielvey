@@ -138,7 +138,7 @@ public class AddPrdocte extends AppCompatActivity {
         alertDialog =
                 new AlertDialog.Builder(this).setTitle(R.string.wait)
                         .setMessage(getString(R.string.up))
-                        .setIcon(R.drawable.ic_launcher_background).create();
+                        .setIcon(R.drawable.ic_clouding).create();
         alertDialog.show();
         mymodel.UploadImagee(pn, pp, pc, filename, extention, imageuri, new AddingProducteStatus() {
             @Override

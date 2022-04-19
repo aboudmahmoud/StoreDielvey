@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/editAcunt"
+            android:icon="@drawable/ic_addpr"
+            android:title="@string/add_product" />
+        <item
+            android:id="@+id/ProductePage"
+            android:icon="@drawable/ic_shop"
+            android:title="@string/the_shop" />
+        <item
+            android:id="@+id/Profile"
+            android:icon="@drawable/ic_pro"
+            android:title="@string/profile" />
+    </group>
+    <item android:title="@string/more">
+        <menu>
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_inof"
+                android:title="@string/about_the_app" />
+            <item
+                android:id="@+id/share"
+                android:icon="@drawable/ic_share"
+                android:title="@string/share" />
+        </menu>
+    </item>
+</menu>

@@ -5,6 +5,5 @@ import com.example.deliveryapp.Moudle.ProducteInfo;
 import java.util.ArrayList;
 
 public interface getingProducteInfo {
-
-    ArrayList<ProducteInfo>pr();
+    void getingProducted(ArrayList<ProducteInfo> producteInfos );
 }

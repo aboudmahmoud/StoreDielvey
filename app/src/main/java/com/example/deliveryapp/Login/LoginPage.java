@@ -16,6 +16,7 @@ import com.example.deliveryapp.FirebaseStore.getTheData;
 import com.example.deliveryapp.FirebaseStore.GetViewModle;
 import com.example.deliveryapp.Moudle.userInfo;
 import com.example.deliveryapp.ProducteControl.AddPrdocte;
+import com.example.deliveryapp.ProducteControl.ProducteViewr;
 import com.example.deliveryapp.R;
 import com.example.deliveryapp.Signin.SignIN;
 import com.example.deliveryapp.databinding.ActivityLoginPageBinding;
@@ -75,7 +76,7 @@ public class LoginPage extends AppCompatActivity {
          alertDialog=
                 new AlertDialog.Builder(LoginPage.this).setTitle(R.string.wait)
                         .setMessage(getString(R.string.log))
-                        .setIcon(R.drawable.ic_launcher_background).create();
+                        .setIcon(R.drawable.ic_entring).create();
         alertDialog.show();
 
 
@@ -85,8 +86,10 @@ public class LoginPage extends AppCompatActivity {
                 if (count == 1) {
                     Toast.makeText(LoginPage.this, R.string.walcome, Toast.LENGTH_LONG).show();
                     alertDialog.dismiss();
-                    Intent intent = new Intent(LoginPage.this, AddPrdocte.class);
+                    Intent intent = new Intent(LoginPage.this, ProducteViewr.class);
+                    intent.putExtra("userData",usernfo);
                     startActivity(intent);
+                    finish();
 
                 } else if (count == 2) {
                     alertDialog.dismiss();

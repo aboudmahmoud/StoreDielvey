@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DeliveryApp</string>
+    <string name="app_name">StoreApp</string>
     <string name="hello">Hello!</string>
     <string name="login">logIn</string>
     <string name="sign">register</string>
@@ -36,7 +36,6 @@
     <string name="please_insert">Please insert Company Name</string>
     <string name="the_shop">The Shop</string>
     <string name="vistior">sign in</string>
-
     <string name="edit">log in</string>
     <string name="getp">Getting Products</string>
     <string name="lessthanOne">You Can\'t buy less tha one </string>
@@ -55,5 +54,19 @@
     <string name="license">License to use the ِApp:</string>
     <string name="uses">you can see the soruce code by clicking github Repositories icon and for the using the app you can use and try it but for actual or commercial use you can\'t do that Due to limited storage, read and write rates for Firebase free membership</string>
     <string name="contact">If you want to use this program commercially or personally \n Whether you have your own database host or not \n If you want to modify or add something else \n or for another purpose \nYou can contact me via Telegram</string>
+    <string name="total">total price is </string>
+    <string name="add_product">add product</string>
+    <string name="share">Share</string>
+    <string name="profile">Profile</string>
+    <string name="visitor">Visitor</string>
+    <string name="more">More</string>
+    <string name="bill">bill</string>
+    <string name="attention">Attention</string>
+    <string name="singImp">You must be logged in to add products</string>
+    <string name="recmoned">\nLet me recommend you this application\n\n</string>
+    <string name="choes">choose one</string>
+    <string name="cancel">Cancel</string>
+    <string name="num">Number of Items </string>
+
 
 </resources>

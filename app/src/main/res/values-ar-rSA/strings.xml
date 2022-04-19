@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DeliveryApp</string>
+    <string name="app_name">المتجر</string>
     <string name="hello">مرحبا!</string>
     <string name="login">تسجيل دخول</string>
     <string name="sign">تسجيل حساب</string>
@@ -55,4 +55,18 @@
     <string name="license">رخصة استخدام البرنامج :</string>
     <string name="uses">يمكنك استخدام البرنامج بشكل طبيعي واذا كنت مبرمج يكنك الاطلاع علي الاكواد الخاص بالتطبيق عبر الضغط علي ايقونة مستودع جيت هاب  يمكنك تجرتبته واستخدامه لكن الاستخدام التجاري او الشخصي غير ممكن نظرا لان تخزين الدتا تتم بشكل محدود علي فاير بيس </string>
     <string name="contact">اذا كنت تريد استخدام التطبيق بشكل تجاري او شخصي \n اذا لديك هوست لقاعدة بيانات خاصة بك او لا \n اذا كنت تريد تعديل في التطبيق او اضافة عليه \n او شئ اخر  \n يمكنك التواصل معي بشكل خاص عبر التيلجرام </string>
+    <string name="total">السعر الكلي</string>
+    <string name="add_product">ضف سلعتك</string>
+    <string name="share">شارك</string>
+    <string name="profile">ملفك الشخصي</string>
+    <string name="visitor">زائر</string>
+    <string name="more">المزيد</string>
+    <string name="bill">الفاتورة</string>
+    <string name="attention">انتباه</string>
+    <string name="singImp">عليك تسجيل دخول للمتابعة الي هذا الصفحة</string>
+    <string name="recmoned">\n جرب تطبيق المتجر\n\n</string>
+    <string name="choes">اختار واحده</string>
+    <string name="cancel">الالغاء</string>
+    <string name="num">عدد المنتجات</string>
+
 </resources>

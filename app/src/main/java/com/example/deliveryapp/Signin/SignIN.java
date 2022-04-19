@@ -125,7 +125,7 @@ public class SignIN extends AppCompatActivity {
       alertDialog=
               new AlertDialog.Builder(this).setTitle(R.string.wait)
                       .setMessage(getString(R.string.registering))
-                      .setIcon(R.drawable.ic_launcher_background).create();
+                      .setIcon(R.drawable.ic_reging).create();
       alertDialog.show();
       mymodel.CheckByEmail(Email, new EmailCheckInfrace() {
           @Override

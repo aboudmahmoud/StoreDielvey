@@ -1,9 +1,19 @@
 package com.example.deliveryapp.Moudle;
 
-public class userInfo {
-    private String FullName,Email,Password,Place,phoneNumber;
-    private  int status;
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+@Entity(tableName = "UserTable")
+public class userInfo implements Serializable {
+    private String FullName,Email,Password,Place,phoneNumber;
+    @PrimaryKey
+    @NonNull
+    private String UIde;
+    private  int status;
+public userInfo()
+{}
     public userInfo(String fullName, String email, String password, String place, String phoneNumber, int status) {
         FullName = fullName;
         Email = email;
@@ -12,6 +22,15 @@ public class userInfo {
         this.phoneNumber = phoneNumber;
         this.status = status;
     }
+
+    public String getUIde() {
+        return UIde;
+    }
+
+    public void setUIde(String UIde) {
+        this.UIde = UIde;
+    }
+
     public int getStatus() {
         return status;
     }

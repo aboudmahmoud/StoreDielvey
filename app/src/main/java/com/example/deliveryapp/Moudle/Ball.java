@@ -1,8 +1,9 @@
 package com.example.deliveryapp.Moudle;
 
 
+import java.io.Serializable;
 
-public class Ball {
+public class Ball implements Serializable {
 ProducteInfo producteInfo;
 double TotalPrice;
 int Qunaty;
@@ -12,6 +13,7 @@ int Qunaty;
         TotalPrice = totalPrice;
         Qunaty = qunaty;
     }
+
 
     public ProducteInfo getProducteInfo() {
         return producteInfo;

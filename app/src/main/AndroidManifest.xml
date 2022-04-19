@@ -16,7 +16,7 @@
             android:name=".Waclome.AboutMe"
             android:exported="false" />
         <activity
-            android:name=".BillView.BallViewr"
+            android:name=".ProducteControl.BillView.BallViewr"
             android:exported="false" />
         <activity
             android:name=".ProducteControl.ProducteViewr"
@@ -44,7 +44,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false" >
+
+        </activity>
     </application>
 
 </manifest>

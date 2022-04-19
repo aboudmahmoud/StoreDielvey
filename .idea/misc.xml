@@ -3,27 +3,39 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/broderforlayout.xml" value="0.105" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/btnbackground.xml" value="0.136" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/buttonsginin.xml" value="0.176" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/coustem_textnof.xml" value="0.105" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/ic__91716_github_logo_social_network_social_icon.xml" value="0.105" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/ic_aboud.xml" value="0.105" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.176" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/ic_moudle.xml" value="0.176" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/ic_pro.xml" value="0.1395" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/ic_walco.xml" value="0.1" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/linerborder.xml" value="0.105" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/mutieitem.xml" value="0.136" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/textbackgroud.xml" value="0.176" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/drawable/textshpe.xml" value="0.1465" />
-        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_about_me.xml" value="0.33" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_about_me.xml" value="0.2" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_add_prdocte.xml" value="0.25" />
-        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_ball_viewr.xml" value="0.33" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_ball_viewr.xml" value="0.1" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_login_page.xml" value="0.25" />
-        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_producte_viewr.xml" value="0.1" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_producte_viewr.xml" value="0.25" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_spalsh_view.xml" value="0.33" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/activity_waclome_page.xml" value="0.33" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/bill_values.xml" value="0.25" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/coustem_bill_notfaction.xml" value="0.22" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/fragment_dilog.xml" value="0.2064814814814815" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/nav_bar.xml" value="0.33" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/pupup_page.xml" value="0.22" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/layout/rproductspage.xml" value="0.33" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/menu/bottom_nev.xml" value="0.20462962962962963" />
         <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/menu/many.xml" value="0.17592592592592593" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/menu/nev.xml" value="0.5" />
+        <entry key="..\:/work place/AndrodWorkSpace/DeliveryApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

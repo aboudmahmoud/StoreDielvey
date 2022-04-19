@@ -1,7 +1,9 @@
 package com.example.deliveryapp.Moudle;
 
-public class ProducteInfo {
-    String ProducteName,ProductePrice,ProudcteImageUri,ProudcteCompanty,userName,ExtentionImage;
+import java.io.Serializable;
+
+public class ProducteInfo  implements Serializable {
+    String ProducteName,ProductePrice,ProudcteImageUri,ProudcteCompanty,ExtentionImage;
 
 
 
@@ -10,7 +12,6 @@ public class ProducteInfo {
         ProductePrice = productePrice;
         ProudcteImageUri = proudcteImageUri;
         ProudcteCompanty = proudcteCompanty;
-
         this.ExtentionImage=ExtentionImage;
     }
 
@@ -38,13 +39,7 @@ public class ProducteInfo {
         ProducteName = producteName;
     }
 
-    public String getUserName() {
-        return userName;
-    }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public void setProductePrice(String productePrice) {
         ProductePrice = productePrice;
@@ -53,10 +48,6 @@ public class ProducteInfo {
     public void setProudcteImageUri(String proudcteImageUri) {
         ProudcteImageUri = proudcteImageUri;
     }
-
-
-
-
 
     public String getProductePrice() {
         return ProductePrice;
