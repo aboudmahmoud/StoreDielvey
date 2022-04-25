@@ -21,8 +21,8 @@
             android:id="@+id/RV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/rproductspage"
-            android:layout_above="@id/btm"/>
+            android:layout_above="@id/btm"
+            tools:listitem="@layout/rproductspage" />
 
         <ImageView
             android:id="@+id/info"
@@ -33,16 +33,7 @@
             android:clickable="true"
             android:visibility="gone"
             android:src="@drawable/in" />
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingactionbutton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:visibility="gone"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            app:srcCompat="@android:drawable/ic_input_add"
-            android:focusable="true" />
+
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/btm"

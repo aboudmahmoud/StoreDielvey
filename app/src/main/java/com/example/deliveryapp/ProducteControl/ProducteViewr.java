@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.annotation.SuppressLint;
+
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 
@@ -23,38 +24,31 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.deliveryapp.BuildConfig;
+
 import com.example.deliveryapp.FirebaseStore.GetViewModle;
 import com.example.deliveryapp.Fragments.DilogFragment;
 import com.example.deliveryapp.Login.LoginPage;
 
+import com.example.deliveryapp.Moudle.Ball;
 import com.example.deliveryapp.Moudle.userInfo;
 import com.example.deliveryapp.ProducteControl.Adapters.ProduteAdapter;
 import com.example.deliveryapp.Moudle.ProducteInfo;
 
 import com.example.deliveryapp.ProducteControl.Adapters.addToNotfactionFormAddCart;
+import com.example.deliveryapp.ProducteControl.BillView.BallViewr;
 import com.example.deliveryapp.R;
-
 import com.example.deliveryapp.RoomDatabase.CurrentUser;
 import com.example.deliveryapp.RoomDatabase.ViewRoomModel;
-
 import com.example.deliveryapp.Waclome.AboutMe;
 import com.example.deliveryapp.databinding.ActivityProducteViewrBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import com.google.android.material.navigation.NavigationBarView;
-
-
-
-import java.io.IOException;
 import java.io.Serializable;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
-public class ProducteViewr extends AppCompatActivity implements Serializable , DilogFragment.OnPostiveButton, DilogFragment.OnNegativeButton, addToNotfactionFormAddCart {
+public class ProducteViewr extends AppCompatActivity implements Serializable , DilogFragment.OnPostiveButton, DilogFragment.OnNegativeButton, addToNotfactionFormAddCart, BallViewr.OnDeletItemBill {
     ActivityProducteViewrBinding binding;
 
     ProduteAdapter produteAdapter;
@@ -65,11 +59,13 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
 
     userInfo usernfo;
 
-    MenuItem addProudcteItem,ProfileItem,BillItem;
+
     BottomNavigationView  mbottomNavigationView ;
     //for Notfaction
     TextView tv;
     public BottomNavigationView navigationView;
+
+    public boolean StatuseProducte=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,17 +81,18 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
         mymodel.prdouctInfi.observe(this, new Observer<ArrayList<ProducteInfo>>() {
             @Override
             public void onChanged(ArrayList<ProducteInfo> producteInfos) {
-                produteAdapter = new ProduteAdapter(producteInfos,ProducteViewr.this,binding.floatingactionbutton);
+
+                produteAdapter = new ProduteAdapter(producteInfos,ProducteViewr.this);
                 binding.RV.setHasFixedSize(true);
                 binding.RV.setLayoutManager(new GridLayoutManager(ProducteViewr.this,2));
                 binding.RV.setAdapter(produteAdapter);
-
+                StatuseProducte=true;
                // mymodel.getImage();
             }
         });
         usernfo=(userInfo) getIntent().getSerializableExtra("userData");
         viewRoomModel= new ViewModelProvider(this).get(ViewRoomModel.class);
-        Log.d("Aboud", "onCreate: "+CurrentUser.CurrentSataus);
+
         if (usernfo!=null)
         {
             if (CurrentUser.CurrentSataus==false)
@@ -109,7 +106,6 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
         }
         //setTextNotfatcion
         extracted();
-
 
         binding.btm.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -144,13 +140,26 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
                     }
                     case R.id.billCoustmer:
                     {
+                        if (StatuseProducte!=false)
+                        {
+                            produteAdapter.setTheBill();
+                          //  produteAdapter.notifyDataSetChanged();
+                            //binding.btm.setSelectedItemId( R.id.billCoustmer);
+                            item.setChecked(true);
+                            produteAdapter.setCount(0);
+                            //
+                            tv.setVisibility(View.GONE);
+                            produteAdapter.notifyDataSetChanged();
+                            break;
+
+                        }
+                        else
+                        {
+                            Toast.makeText(ProducteViewr.this, R.string.waitMessg, Toast.LENGTH_SHORT).show();
+                            break;
+                        }
                        // showMessage("hi");
-                        produteAdapter.setTheBill();
-                        //binding.btm.setSelectedItemId( R.id.billCoustmer);
-                        item.setChecked(true);
-                        produteAdapter.setCount(0);
-                        tv.setVisibility(View.GONE);
-                        break;
+
 
                     }
 
@@ -162,8 +171,9 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
 
 
 
-
     }
+
+
 
     private void extracted() {
         mbottomNavigationView=binding.btm;
@@ -183,7 +193,13 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
 
 
 
+    @Override
+    public void recreate() {
+        super.recreate();
+        finish();
+        startActivity(getIntent());
 
+    }
 
     @Override
     public void onpostiveClicked() {
@@ -263,7 +279,7 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
         // If you need the PopupWindow to dismiss when when touched outside
         int color= 0xFFFFFFFF;
         popupWindow.setBackgroundDrawable(new ColorDrawable(color ));
-        binding.Relaout.setBackgroundColor(color);
+
         int location[] = new int[2];
 
         // Get the View's(the one that was clicked in the Fragment) location
@@ -273,8 +289,7 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
         popupWindow.showAtLocation(anchorView, Gravity.CENTER,
                 location[0], location[0] );
 
-        int colore= 0x80C7C6C6;
-        binding.Relaout.setBackgroundColor(colore);
+
 
 
     }
@@ -284,5 +299,10 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
     public void NotfyBill(int count) {
         tv.setVisibility(View.VISIBLE);
         tv.setText(String.valueOf(count));
+    }
+
+    @Override
+    public void DeletItem(ArrayList<Ball> ballis) {
+        produteAdapter.setBalls(ballis);
     }
 }

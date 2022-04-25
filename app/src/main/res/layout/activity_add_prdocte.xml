@@ -110,19 +110,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/buttonsginin"
+
                 android:gravity="center"
-                android:text="@string/add_photo_to_producte" />
+                android:text="@string/add_photo_to_producte"
+                android:textColor="@color/vividred"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeColor="@color/vividred"
+                app:cornerRadius="@dimen/_1sdp"
+
+                app:strokeWidth="@dimen/_1sdp"/>
 
             <Button
                 android:id="@+id/btUpD"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_170sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_10sdp"
-                android:backgroundTint="@color/black"
+
                 android:gravity="center"
-                android:text="@string/add_the_product" />
+                android:text="@string/add_the_product"
+                android:textColor="@color/black"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeColor="@color/black"
+                app:cornerRadius="@dimen/_1sdp"
+
+                app:strokeWidth="@dimen/_1sdp"/>
 
         </LinearLayout>
     </ScrollView>

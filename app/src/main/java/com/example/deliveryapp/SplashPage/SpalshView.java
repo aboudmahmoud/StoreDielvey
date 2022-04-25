@@ -48,7 +48,7 @@ ActivitySpalshViewBinding binding;
                        CurrentUser.CurrentSataus=false;
                    }
 
-                    if ( CurrentUser.CurrentSataus==false) {
+                    if (!CurrentUser.CurrentSataus) {
                         Intent intent = new Intent(SpalshView.this, WaclomePage.class);
                         startActivity(intent);
                         finish();
@@ -56,7 +56,7 @@ ActivitySpalshViewBinding binding;
                     else {
                         Intent intent = new Intent(SpalshView.this, ProducteViewr.class);
                         String id=viewRoomModel.getCurrenUserId();
-                        Log.d("Aboud", "run: "+id);
+                       
                         runOnUiThread(new Runnable() {
                             public void run() {
                                 // my code to update the UI thread here

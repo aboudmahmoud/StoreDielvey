@@ -61,60 +61,54 @@ public class SignIN extends AppCompatActivity {
 
         mymodel=new ViewModelProvider(this).get(GetViewModle.class);
 
-        binding.btnSing.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                //
-              //  strogPage= new StrogPage(getBaseContext());
-                Fullname = name.getText().toString().trim();
-                password = pass.getText().toString().trim();
-                phone = phon.getText().toString().trim();
-                email = Emal.getText().toString().trim();
-                adders = adder.getText().toString().trim();
-                if (Fullname.isEmpty())
-                {
-                    name.setError(getString(R.string.errorEmpty));
-                 return;
-                }
-                int siz = password.length();
-                if (password.isEmpty()|| siz<7 )
-                {
-                    pass.setError(getString(R.string.errorEmpty)+getString(R.string.less));
-                    return;
-                }
-                if (phone.isEmpty())
-                {
-                    phon.setError(getString(R.string.errorEmpty));
-                    return;
-                }
-                if (email.isEmpty())
-                {
-                    Emal.setError(getString(R.string.errorEmpty));
-                    return;
-                }
-                if (adders.isEmpty())
-                {
-                    adder.setError(getString(R.string.errorEmpty));
-                    return;
-                }
-                CheckEmail(email);
-
-            // strogPage.insertuser(user);
-
-
-
-
-
-              //  Toast.makeText(getApplicationContext(), "ur name is " + Fullname, Toast.LENGTH_LONG).show();
+        binding.btnSing.setOnClickListener(view -> {
+            //
+          //  strogPage= new StrogPage(getBaseContext());
+            Fullname = name.getText().toString().trim();
+            password = pass.getText().toString().trim();
+            phone = phon.getText().toString().trim();
+            email = Emal.getText().toString().trim();
+            adders = adder.getText().toString().trim();
+            if (Fullname.isEmpty())
+            {
+                name.setError(getString(R.string.errorEmpty));
+             return;
             }
+            int siz = password.length();
+            if (password.isEmpty()|| siz<7 )
+            {
+                pass.setError(getString(R.string.errorEmpty)+getString(R.string.less));
+                return;
+            }
+            if (phone.isEmpty())
+            {
+                phon.setError(getString(R.string.errorEmpty));
+                return;
+            }
+            if (email.isEmpty())
+            {
+                Emal.setError(getString(R.string.errorEmpty));
+                return;
+            }
+            if (adders.isEmpty())
+            {
+                adder.setError(getString(R.string.errorEmpty));
+                return;
+            }
+            CheckEmail(email);
+
+        // strogPage.insertuser(user);
+
+
+
+
+
+          //  Toast.makeText(getApplicationContext(), "ur name is " + Fullname, Toast.LENGTH_LONG).show();
         });
-        binding.textLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(SignIN.this, LoginPage.class);
-                startActivity(intent);
-            }
+        binding.textLogin.setOnClickListener(view -> {
+            Intent intent= new Intent(SignIN.this, LoginPage.class);
+            startActivity(intent);
+
         });
     }
 
@@ -173,7 +167,9 @@ public class SignIN extends AppCompatActivity {
                     adder.setText("");
                     if(alertDialog.isShowing())
                         alertDialog.dismiss();
-
+                    Intent intent= new Intent(SignIN.this, LoginPage.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
 

@@ -16,44 +16,17 @@ ActivityAboutMeBinding binding;
         super.onCreate(savedInstanceState);
         binding = ActivityAboutMeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.facbook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/boy.good.1088/")));
-            }
-        });
-        binding.twiiter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/aboudmahmoud2")));
-            }
-        });
-        binding.tallgram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/Aboud_Mahmoud")));
-            }
-        });
+        binding.facbook.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/boy.good.1088/"))));
 
-        binding.githubRebo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/aboudmahmoud/StoreDielvey")));
-            }
-        });
+        binding.twiiter.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/aboudmahmoud2"))));
 
-        binding.github.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/aboudmahmoud")));
-            }
-        });
+        binding.tallgram.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/Aboud_Mahmoud"))));
 
-        binding.linkedIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/aboudmahmoud/")));
-            }
-        });
+        binding.githubRebo.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/aboudmahmoud/StoreDielvey"))));
+
+        binding.github.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/aboudmahmoud"))));
+
+        binding.linkedIn.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/aboudmahmoud/"))));
+
     }
 }

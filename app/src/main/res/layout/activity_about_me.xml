@@ -40,6 +40,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="@dimen/_5sdp"
                         android:text="@string/abdlrhman_mahmoud_elsyed" />
 
                     <TextView
@@ -47,6 +48,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
                         android:gravity="center"
                         android:text="@string/software_developer" />
 
@@ -128,7 +130,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+android:layout_margin="@dimen/_4sdp"
                     android:gravity="start"
                     android:text="@string/license" />
 

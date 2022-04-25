@@ -10,9 +10,9 @@
     <string name="sign_in">Sign Up</string>
     <string name="insert_your_city">Insert your City</string>
     <string name="register">Register</string>
-    <string name="did_you_have_acount">Did you have account ?</string>
+    <string name="did_you_have_acount">Do you have account ?</string>
     <string name="logine">LogIn</string>
-    <string name="waclome_to_delivery_app_n_here_you_can_sell_and_buy">Welcome to Delivery App \n here you can Sell and buy</string>
+    <string name="waclome_to_delivery_app_n_here_you_can_sell_and_buy">Welcome to Store App \n here you can Sell and buy</string>
     <string name="dosent">that email doesn\'t exist</string>
     <string name="passwordworng">Password is Wrong</string>
     <string name="walcome">Welcome</string>
@@ -67,6 +67,14 @@
     <string name="choes">choose one</string>
     <string name="cancel">Cancel</string>
     <string name="num">Number of Items </string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="waitMessg">Plase Wait For the Proudcet loading</string>
+    <string name="MAPS_API_KEY">AIzaSyAoknlXPvctgcDrCPiiTgX8KHlNJM7cuNc</string>
+    <string name="mapbutton">Add Location</string>
+    <string name="conferm">Conferm</string>
+    <string name="operation_confirmed">Operation confirmed</string>
+    <string name="marke">Plase Marke your place by Click on it</string>
+    <string name="supported">This OS System is old and Not supported</string>
 
 
 </resources>

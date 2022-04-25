@@ -42,54 +42,48 @@ public class LoginPage extends AppCompatActivity {
         pass = binding.passtext;
         mymodel = new ViewModelProvider(this).get(GetViewModle.class);
 
-        binding.btnLog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        binding.btnLog.setOnClickListener(view -> {
 
-                email = Emal.getText().toString();
-                password = pass.getText().toString();
-                if (email.isEmpty()) {
-                    Emal.setError(getString(R.string.errorEmpty));
-                    return;
-                }
-                if (password.isEmpty()) {
-                    pass.setError(getString(R.string.errorEmpty));
-                    return;
-                }
-                getUsers(email, password);
-
-
+            email = Emal.getText().toString();
+            password = pass.getText().toString();
+            if (email.isEmpty()) {
+                Emal.setError(getString(R.string.errorEmpty));
+                return;
             }
+            if (password.isEmpty()) {
+                pass.setError(getString(R.string.errorEmpty));
+                return;
+            }
+            getUsers(email, password);
+
+
         });
 
-        binding.textSign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginPage.this, SignIN.class);
-                startActivity(intent);
-            }
+        binding.textSign.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginPage.this, SignIN.class);
+            startActivity(intent);
         });
     }
 
 
     public void getUsers(String Email, String Password) {
-         alertDialog=
+        alertDialog =
                 new AlertDialog.Builder(LoginPage.this).setTitle(R.string.wait)
                         .setMessage(getString(R.string.log))
                         .setIcon(R.drawable.ic_entring).create();
         alertDialog.show();
 
-
         mymodel.getTheUserData(Email, Password, new getTheData() {
             @Override
             public void useingData(userInfo usernfo, int count) {
                 if (count == 1) {
-                    Toast.makeText(LoginPage.this, R.string.walcome, Toast.LENGTH_LONG).show();
+                    //    Toast.makeText(LoginPage.this, R.string.walcome, Toast.LENGTH_LONG).show();
                     alertDialog.dismiss();
                     Intent intent = new Intent(LoginPage.this, ProducteViewr.class);
-                    intent.putExtra("userData",usernfo);
+                    intent.putExtra("userData", usernfo);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
-                    finish();
+
 
                 } else if (count == 2) {
                     alertDialog.dismiss();

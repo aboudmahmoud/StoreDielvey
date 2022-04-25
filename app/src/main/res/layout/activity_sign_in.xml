@@ -38,7 +38,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15sdp"
                 app:endIconMode="custom">
 
@@ -46,11 +47,11 @@
                     android:id="@+id/textName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/textbackgroud"
+
                     android:drawableStart="@drawable/ic_moudle"
                     android:drawablePadding="@dimen/_10sdp"
+                    android:textSize="@dimen/_10sdp"
                     android:hint="@string/entar_your_full_name"
-
                     android:inputType="text"
                     android:paddingStart="@dimen/_5sdp" />
 
@@ -60,14 +61,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15sdp"
-                app:endIconMode="custom">
+                app:endIconMode="custom"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textEmail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/textbackgroud"
-                    android:drawableStart="@drawable/email2"
+                    android:drawableStart="@drawable/ic_emilcom"
+                    android:textSize="@dimen/_10sdp"
                     android:drawablePadding="@dimen/_10sdp"
                     android:hint="@string/entar_your_email_plase"
                     android:inputType="textEmailAddress"
@@ -79,20 +81,22 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:layout_marginBottom="@dimen/_15sdp"
-                app:endIconMode="password_toggle">
+                android:layout_margin="@dimen/_15sdp"
+                app:endIconMode="password_toggle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textPass"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/textbackgroud"
-                    android:drawableStart="@drawable/unlock"
+
+
+                    android:drawableStart="@drawable/ic_password"
                     android:drawablePadding="@dimen/_10sdp"
                     android:hint="@string/insert_your_passwrod_here"
-                    android:inputType="textPassword" />
+                    android:textSize="@dimen/_10sdp"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/_5sdp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,16 +104,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15sdp"
-                app:endIconMode="custom">
+                app:endIconMode="custom"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textphone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/textbackgroud"
+
                     android:drawableStart="@drawable/smartphone"
                     android:drawablePadding="@dimen/_10sdp"
                     android:hint="@string/entar_your_phone_number_plase"
+                    android:textSize="@dimen/_10sdp"
                     android:inputType="phone"
                     android:paddingStart="@dimen/_5sdp" />
 
@@ -119,32 +125,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15sdp"
-                app:endIconMode="custom">
+                app:endIconMode="custom"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textCity"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/textbackgroud"
+
                     android:drawableStart="@drawable/city"
                     android:drawablePadding="@dimen/_10sdp"
                     android:hint="@string/insert_your_city"
+                    android:textSize="@dimen/_10sdp"
                     android:inputType="text"
                     android:paddingStart="@dimen/_5sdp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+
                 android:id="@+id/btn_sing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/buttonsginin"
-                android:backgroundTint="#F8F0F0"
+
                 android:gravity="center"
                 android:text="@string/register"
                 android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textColor="@color/vividred"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeColor="@color/vividred"
+                app:cornerRadius="@dimen/_1sdp"
+
+                app:strokeWidth="@dimen/_1sdp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -158,7 +171,7 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+android:textColor="@color/black"
                     android:text="@string/did_you_have_acount" />
 
                 <TextView
@@ -166,6 +179,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:textColor="@color/black"
                     android:text="@string/logine" />
             </LinearLayout>
 

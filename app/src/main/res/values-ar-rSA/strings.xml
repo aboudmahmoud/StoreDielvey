@@ -68,5 +68,13 @@
     <string name="choes">اختار واحده</string>
     <string name="cancel">الالغاء</string>
     <string name="num">عدد المنتجات</string>
+    <string name="waitMessg">من فضلك انتظر تحميل المنتجات</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="MAPS_API_KEY">AIzaSyAoknlXPvctgcDrCPiiTgX8KHlNJM7cuNc</string>
+    <string name="mapbutton">تحديد مكان التوصيل</string>
+    <string name="conferm">تاكيد</string>
+    <string name="operation_confirmed">تم تأكيد عملية الشراء</string>
+    <string name="marke">رجاء ضع علامة علي مكان التي تريد التوصيل اليه </string>
+    <string name="supported">عفوا النظام لايدعم الخرائط</string>
 
 </resources>

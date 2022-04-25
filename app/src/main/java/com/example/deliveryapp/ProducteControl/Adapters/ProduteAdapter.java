@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,22 +31,25 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
     ArrayList<ProducteInfo> producteInfos;
     ArrayList<Ball> balls;
     Context context;
-    FloatingActionButton floatingActionButton;
+
+
     addToNotfactionFormAddCart toNotfactionFormAddCart;
-    static  int count=0;
+    static int count = 0;
 
 
     public ProduteAdapter(ArrayList<ProducteInfo> producteInfos,
-                          Context context,
-                          FloatingActionButton floatingActionButton) {
+                          Context context) {
         this.producteInfos = producteInfos;
         this.context = context;
-        this.floatingActionButton= floatingActionButton;
-        ///  this.listener=listener;
         balls = new ArrayList<>();
-        toNotfactionFormAddCart=(addToNotfactionFormAddCart)context;
+        toNotfactionFormAddCart = (addToNotfactionFormAddCart) context;
+        BallViewr.onDeletItemBill = (BallViewr.OnDeletItemBill) context;
     }
 
+    public void setBalls(ArrayList<Ball> balls) {
+        this.balls = balls;
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
@@ -57,58 +62,47 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
     @Override
     public void onBindViewHolder(@NonNull ProduteViewHolder holder, int position) {
         holder.bind(producteInfos.get(position));
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(context, BallViewr.class);
-                intent.putExtra("Ball",balls);
-                context.startActivity(intent);
-
-            }
-        });
-
-
     }
 
 
-
-    public  void setCount(int count) {
+    public void setCount(int count) {
         ProduteAdapter.count = count;
     }
 
-public void setTheBill()
-{
-
-    Intent intent= new Intent(context, BallViewr.class);
-    intent.putExtra("Ball",balls);
-    context.startActivity(intent);
-    if(context instanceof Activity){
-        ((Activity)context).finish(); }
-
-}
+    public void setTheBill() {
+        Intent intent = new Intent(context, BallViewr.class);
+        intent.putExtra("Ball", balls);
+        context.startActivity(intent);
+       // notifyDataSetChanged();
+    }
 
     @Override
     public int getItemCount() {
         return producteInfos.size();
     }
 
+
     class ProduteViewHolder extends RecyclerView.ViewHolder {
-       private RproductspageBinding binding;
+        private RproductspageBinding binding;
         StrogPage strogPage;
-        double Totalprice=0;
+        double Totalprice = 0;
+        int qunatnty = 0;
 
         public ProduteViewHolder(@NonNull View itemView) {
             super(itemView);
-            binding= RproductspageBinding.bind(itemView);
+            binding = RproductspageBinding.bind(itemView);
 
         }
 
-        void bind(ProducteInfo produ)
-        {
-            final int[] qunatnty = {0};
+        void bind(ProducteInfo produ) {
+            if (qunatnty != 0) {
+                qunatnty = 0;
+                binding.ProdutQuanty.setText(String.valueOf(qunatnty));
+            }
+
             binding.ProudteCampny.setText(produ.getProudcteCompanty());
             binding.ProduteNameR.setText(produ.getProducteName());
-            binding.ProuductePrice.setText(produ.getProductePrice()+"$");
+            binding.ProuductePrice.setText(produ.getProductePrice() + "$");
             strogPage = new StrogPage();
             strogPage.getImageSpeficImage(produ.getProudcteImageUri(), new ImageListner() {
                 @Override
@@ -124,55 +118,38 @@ public void setTheBill()
             double price = Double.parseDouble(produ.getProductePrice());
 
 
-            binding.mins.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                     qunatnty[0] = Integer.parseInt(binding.ProdutQuanty.getText().toString());
-                    if(qunatnty[0] <1)
-                    {
-                        Toast.makeText(context, R.string.lessthanOne, Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        qunatnty[0]--;
-                        binding.ProdutQuanty.setText( String.valueOf(qunatnty[0]));
+            binding.mins.setOnClickListener(view -> {
+                qunatnty = Integer.parseInt(binding.ProdutQuanty.getText().toString());
+                if (qunatnty < 1) {
+                    Toast.makeText(context, R.string.lessthanOne, Toast.LENGTH_SHORT).show();
+                } else {
+                    qunatnty--;
+                    binding.ProdutQuanty.setText(String.valueOf(qunatnty));
 
-                        Totalprice=price* qunatnty[0];
-                        binding.ProuductePrice.setText(Totalprice+"$");
+                    Totalprice = price * qunatnty;
+                    binding.ProuductePrice.setText(Totalprice + "$");
 
-                    }
                 }
             });
-            binding.blus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                     qunatnty[0] = Integer.parseInt(binding.ProdutQuanty.getText().toString());
-                    qunatnty[0]++;
-                    binding.ProdutQuanty.setText( String.valueOf(qunatnty[0]));
-                    Totalprice=price* qunatnty[0];
-                    binding.ProuductePrice.setText(Totalprice+"$");
-                }
+            binding.blus.setOnClickListener(view -> {
+                qunatnty = Integer.parseInt(binding.ProdutQuanty.getText().toString());
+                qunatnty++;
+                binding.ProdutQuanty.setText(String.valueOf(qunatnty));
+                Totalprice = price * qunatnty;
+                binding.ProuductePrice.setText(Totalprice + "$");
             });
-            binding.AddToCar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (qunatnty[0] ==0)
-                    {
-                        Toast.makeText(context, R.string.lessthanOne, Toast.LENGTH_SHORT).show();
+            binding.AddToCar.setOnClickListener(view -> {
+                if (qunatnty == 0) {
+                    Toast.makeText(context, R.string.lessthanOne, Toast.LENGTH_SHORT).show();
 
-                    }
-                    else
-                    {
+                } else {
 
-                        balls.add(new Ball(produ,Totalprice, qunatnty[0]));
-                        count++;
-                        toNotfactionFormAddCart.NotfyBill(count);
-                    }
-
+                    balls.add(new Ball(produ, Totalprice, qunatnty));
+                    count++;
+                    toNotfactionFormAddCart.NotfyBill(count);
                 }
 
             });
-
-
 
 
         }

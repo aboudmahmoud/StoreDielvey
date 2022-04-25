@@ -53,7 +53,6 @@ public class AddPrdocte extends AppCompatActivity {
     AlertDialog alertDialog;
     TextInputEditText PN, PP, PC;
     String ProdutName, ProdutePrice, ProducteCompany;
-    ProducteInfo producte;
     ActivityResultLauncher<String> activityResultLauncher;
     boolean imageSeltcted = false;
 
@@ -63,7 +62,6 @@ public class AddPrdocte extends AppCompatActivity {
         bindin = ActivityAddPrdocteBinding.inflate(getLayoutInflater());
         setContentView(bindin.getRoot());
         PN = bindin.ProdcteName;
-        // PQ=bindin.ProdcteQaenty;
         PP = bindin.ProdctePrice;
         PC = bindin.ProdcteCompany;
         mymodel = new ViewModelProvider(this).get(GetViewModle.class);
@@ -71,17 +69,19 @@ public class AddPrdocte extends AppCompatActivity {
                 new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
                     @Override
                     public void onActivityResult(Uri result) {
-                        Date d = new Date();
-                        df = new SimpleDateFormat("HH:mm:ss a, dd:MM:yyyy", Locale.getDefault());
-                        filename = df.format(d);
+                        if (result != null) {
+                            Date d = new Date();
+                            df = new SimpleDateFormat("HH:mm:ss a, dd:MM:yyyy", Locale.getDefault());
+                            filename = df.format(d);
 
 
-                        imageuri = result;
+                            imageuri = result;
 
-                        extention = getFileExtension(imageuri);
-                        // bindin.Img.setImageURI(imageuri);
-                        bindin.PhotoName.setText(filename);
-                        imageSeltcted = true;
+                            extention = getFileExtension(imageuri);
+                            // bindin.Img.setImageURI(imageuri);
+                            bindin.PhotoName.setText(filename);
+                            imageSeltcted = true;
+                        }
                     }
                 });
         bindin.btnChosePhoto.setOnClickListener(new View.OnClickListener() {
