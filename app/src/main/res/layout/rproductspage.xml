@@ -3,120 +3,119 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       >
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ProduteImage"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/edit" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
+            android:gravity="center"
             android:orientation="vertical"
-            android:gravity="center">
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
+            <TextView
+                android:id="@+id/ProduteNameR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:gravity="center"
+                android:text="ProudteName"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/ProduteImage"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_150sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/edit" />
+            <TextView
+                android:id="@+id/ProudteCampny"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/ProuductePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingTop="@dimen/_5sdp">
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/ProduteNameR"
-                    android:layout_width="match_parent"
+                    android:id="@+id/mins"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ProudteName"
-                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="-"
+
+                    android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/ProudteCampny"
+                    android:id="@+id/ProdutQuanty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:text="TextView" />
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/ProuductePrice"
+                    android:id="@+id/blus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/mins"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="-"
-
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_15ssp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/ProdutQuanty"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_15ssp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/blus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="+"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-
-                        android:textSize="@dimen/_15ssp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/AddToCar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:textColor="@color/vividred"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:padding="@dimen/_10sdp"
-                    android:text="@string/add_to_cart"
-                    app:cornerRadius="@dimen/_1sdp"
-                    app:rippleColor="#33AAAAAA"
-                    app:strokeColor="@color/vividred"
-                    app:strokeWidth="@dimen/_1sdp"/>
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/AddToCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/add_to_cart"
+                android:textAllCaps="false"
+                android:textColor="@color/vividred"
+                app:cornerRadius="@dimen/_1sdp"
+                app:rippleColor="#33AAAAAA"
+                app:strokeColor="@color/vividred"
+                app:strokeWidth="@dimen/_1sdp" />
+
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

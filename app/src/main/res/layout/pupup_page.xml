@@ -57,14 +57,17 @@
                     android:id="@+id/UNTEXT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/visitor" />
+                    android:text="@string/visitor"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_marginBottom="@dimen/_5sdp"/>
 
                 <TextView
                     android:id="@+id/EMText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:textSize="@dimen/_8ssp"/>
             </LinearLayout>
         </LinearLayout>
 

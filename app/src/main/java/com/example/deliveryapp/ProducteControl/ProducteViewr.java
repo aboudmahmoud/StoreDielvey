@@ -51,19 +51,20 @@ import java.util.ArrayList;
 public class ProducteViewr extends AppCompatActivity implements Serializable , DilogFragment.OnPostiveButton, DilogFragment.OnNegativeButton, addToNotfactionFormAddCart, BallViewr.OnDeletItemBill {
     ActivityProducteViewrBinding binding;
 
+    //Adapter for list of item
     ProduteAdapter produteAdapter;
 
+    //to get item form firebase and obseve it
     GetViewModle mymodel;
-
+//to get userinfo form room datapase if use is logedin
     ViewRoomModel viewRoomModel;
-
+//to store useing
     userInfo usernfo;
-
-
+    //for navigtion botton
     BottomNavigationView  mbottomNavigationView ;
     //for Notfaction
     TextView tv;
-    public BottomNavigationView navigationView;
+
 
     public boolean StatuseProducte=false;
     @Override
@@ -75,7 +76,7 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
       
        // navigationView.se
 
-
+//here the setup to get proudcte or item
         mymodel=new ViewModelProvider(this).get(GetViewModle.class);
         mymodel.getLiveProducte();
         mymodel.prdouctInfi.observe(this, new Observer<ArrayList<ProducteInfo>>() {
