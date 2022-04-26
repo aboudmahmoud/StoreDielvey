@@ -27,12 +27,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.inject.Singleton;
+
 public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteViewHolder> implements Serializable {
     ArrayList<ProducteInfo> producteInfos;
     ArrayList<Ball> balls;
     Context context;
-
-
+@Singleton
+   private StrogPage strogPage;
     addToNotfactionFormAddCart toNotfactionFormAddCart;
     static int count = 0;
 
@@ -44,6 +46,7 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
         balls = new ArrayList<>();
         toNotfactionFormAddCart = (addToNotfactionFormAddCart) context;
         BallViewr.onDeletItemBill = (BallViewr.OnDeletItemBill) context;
+        strogPage = new StrogPage();
     }
 
     public void setBalls(ArrayList<Ball> balls) {
@@ -84,7 +87,7 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
 
     class ProduteViewHolder extends RecyclerView.ViewHolder {
         private RproductspageBinding binding;
-        StrogPage strogPage;
+
         double Totalprice = 0;
         int qunatnty = 0;
 
@@ -103,7 +106,7 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
             binding.ProudteCampny.setText(produ.getProudcteCompanty());
             binding.ProduteNameR.setText(produ.getProducteName());
             binding.ProuductePrice.setText(produ.getProductePrice() + "$");
-            strogPage = new StrogPage();
+
             strogPage.getImageSpeficImage(produ.getProudcteImageUri(), new ImageListner() {
                 @Override
                 public void getImageUri(Uri imageU) {

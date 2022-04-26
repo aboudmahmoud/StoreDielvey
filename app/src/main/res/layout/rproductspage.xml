@@ -48,13 +48,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:gravity="center"
+                android:textSize="@dimen/_10sdp"
                 android:text="TextView" />
 
             <TextView
                 android:id="@+id/ProuductePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+               />
 
             <LinearLayout
                 android:layout_width="match_parent"
