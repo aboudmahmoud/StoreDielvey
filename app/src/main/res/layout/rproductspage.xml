@@ -50,7 +50,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:gravity="center"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_12sdp"
                 android:text="TextView" />
 
             <TextView

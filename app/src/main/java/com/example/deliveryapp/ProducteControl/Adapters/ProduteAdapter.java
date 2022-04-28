@@ -1,31 +1,34 @@
 package com.example.deliveryapp.ProducteControl.Adapters;
 
-import android.app.Activity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
+
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
 import com.example.deliveryapp.ProducteControl.BillView.BallViewr;
-import com.example.deliveryapp.FirebaseStore.ImageListner;
-import com.example.deliveryapp.FirebaseStore.StrogPage;
+
+
 import com.example.deliveryapp.Moudle.Ball;
 import com.example.deliveryapp.Moudle.ProducteInfo;
 import com.example.deliveryapp.R;
 import com.example.deliveryapp.databinding.RproductspageBinding;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeMap;
 
 import javax.inject.Singleton;
 
@@ -33,11 +36,12 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
     ArrayList<ProducteInfo> producteInfos;
     ArrayList<Ball> balls;
     Context context;
-@Singleton
-   private StrogPage strogPage;
     addToNotfactionFormAddCart toNotfactionFormAddCart;
     static int count = 0;
 
+
+
+    TreeMap<String, Uri> ListOfImages = new TreeMap<>();
 
     public ProduteAdapter(ArrayList<ProducteInfo> producteInfos,
                           Context context) {
@@ -46,8 +50,7 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
         balls = new ArrayList<>();
         toNotfactionFormAddCart = (addToNotfactionFormAddCart) context;
         BallViewr.onDeletItemBill = (BallViewr.OnDeletItemBill) context;
-        strogPage = new StrogPage();
-    }
+   }
 
     public void setBalls(ArrayList<Ball> balls) {
         this.balls = balls;
@@ -67,6 +70,9 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
         holder.bind(producteInfos.get(position));
     }
 
+    public void setListOfImages(TreeMap<String, Uri> listOfImages) {
+        ListOfImages = listOfImages;
+    }
 
     public void setCount(int count) {
         ProduteAdapter.count = count;
@@ -76,7 +82,7 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
         Intent intent = new Intent(context, BallViewr.class);
         intent.putExtra("Ball", balls);
         context.startActivity(intent);
-       // notifyDataSetChanged();
+        // notifyDataSetChanged();
     }
 
     @Override
@@ -98,6 +104,8 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
         }
 
         void bind(ProducteInfo produ) {
+
+
             if (qunatnty != 0) {
                 qunatnty = 0;
                 binding.ProdutQuanty.setText(String.valueOf(qunatnty));
@@ -106,18 +114,10 @@ public class ProduteAdapter extends RecyclerView.Adapter<ProduteAdapter.ProduteV
             binding.ProudteCampny.setText(produ.getProudcteCompanty());
             binding.ProduteNameR.setText(produ.getProducteName());
             binding.ProuductePrice.setText(produ.getProductePrice() + "$");
+            if (ListOfImages != null) {
+                Glide.with(context).load(ListOfImages.get(produ.getProudcteImageUri())).into(binding.ProduteImage);
+            }
 
-            strogPage.getImageSpeficImage(produ.getProudcteImageUri(), new ImageListner() {
-                @Override
-                public void getImageUri(Uri imageU) {
-                    Glide.with(context).load(imageU).into(binding.ProduteImage);
-                }
-
-                @Override
-                public void errorMessge(String Error) {
-
-                }
-            });
             double price = Double.parseDouble(produ.getProductePrice());
 
 

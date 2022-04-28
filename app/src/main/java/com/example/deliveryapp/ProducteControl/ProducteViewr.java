@@ -13,6 +13,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -47,6 +48,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class ProducteViewr extends AppCompatActivity implements Serializable , DilogFragment.OnPostiveButton, DilogFragment.OnNegativeButton, addToNotfactionFormAddCart, BallViewr.OnDeletItemBill {
     ActivityProducteViewrBinding binding;
@@ -64,7 +66,7 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
     BottomNavigationView  mbottomNavigationView ;
     //for Notfaction
     TextView tv;
-
+    TreeMap<String, Uri> stringUriTreeMap1;
 
     public boolean StatuseProducte=false;
     @Override
@@ -78,17 +80,28 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
 
 //here the setup to get proudcte or item
         mymodel=new ViewModelProvider(this).get(GetViewModle.class);
+        //this method the get the item and imgaes of items
         mymodel.getLiveProducte();
+//here We get the save the in value
         mymodel.prdouctInfi.observe(this, new Observer<ArrayList<ProducteInfo>>() {
             @Override
             public void onChanged(ArrayList<ProducteInfo> producteInfos) {
 
                 produteAdapter = new ProduteAdapter(producteInfos,ProducteViewr.this);
+
                 binding.RV.setHasFixedSize(true);
                 binding.RV.setLayoutManager(new GridLayoutManager(ProducteViewr.this,2));
                 binding.RV.setAdapter(produteAdapter);
                 StatuseProducte=true;
                // mymodel.getImage();
+            }
+        });
+        mymodel.ListOfImage.observe(this, new Observer<TreeMap<String, Uri>>() {
+            @Override
+            public void onChanged(TreeMap<String, Uri> stringUriTreeMap) {
+                stringUriTreeMap1=stringUriTreeMap;
+                produteAdapter.setListOfImages(stringUriTreeMap);
+                produteAdapter.notifyDataSetChanged();
             }
         });
         usernfo=(userInfo) getIntent().getSerializableExtra("userData");
@@ -108,65 +121,62 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
         //setTextNotfatcion
         extracted();
 
-        binding.btm.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
+        binding.btm.setOnItemSelectedListener(item -> {
+            switch (item.getItemId())
+            {
+                case R.id.addProudcte:
                 {
-                    case R.id.addProudcte:
+                    if (usernfo!=null)
                     {
-                        if (usernfo!=null)
-                        {
-                            Intent intent= new Intent(ProducteViewr.this, AddPrdocte.class);
-                            startActivity(intent);
-                        }
-                        else
-                        {
-                            DilogFragment fragment = DilogFragment.newInstance(getString(R.string.attention)
-                                    ,getString(R.string.singImp),R.drawable.ic_attention);
-                            fragment.show(getSupportFragmentManager(),null);
+                        Intent intent= new Intent(ProducteViewr.this, AddPrdocte.class);
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        DilogFragment fragment = DilogFragment.newInstance(getString(R.string.attention)
+                                ,getString(R.string.singImp),R.drawable.ic_attention);
+                        fragment.show(getSupportFragmentManager(),null);
 
-                        }
-                        //   binding.btm.setSelectedItemId(R.id.addProudcte);
+                    }
+                    //   binding.btm.setSelectedItemId(R.id.addProudcte);
+                    item.setChecked(true);
+                    break;
+                }
+                case R.id.Prof:
+                {
+
+                    showPopup(new View(ProducteViewr.this));
+
+                    item.setChecked(true);
+                    break;
+                }
+                case R.id.billCoustmer:
+                {
+                    if (StatuseProducte!=false)
+                    {
+                        produteAdapter.setTheBill();
+                      //  produteAdapter.notifyDataSetChanged();
+                        //binding.btm.setSelectedItemId( R.id.billCoustmer);
                         item.setChecked(true);
+                        produteAdapter.setCount(0);
+                        //
+                        tv.setVisibility(View.GONE);
+                        produteAdapter.notifyDataSetChanged();
+                        break;
+
+                    }
+                    else
+                    {
+                        Toast.makeText(ProducteViewr.this, R.string.waitMessg, Toast.LENGTH_SHORT).show();
                         break;
                     }
-                    case R.id.Prof:
-                    {
+                   // showMessage("hi");
 
-                        showPopup(new View(ProducteViewr.this));
-
-                        item.setChecked(true);
-                        break;
-                    }
-                    case R.id.billCoustmer:
-                    {
-                        if (StatuseProducte!=false)
-                        {
-                            produteAdapter.setTheBill();
-                          //  produteAdapter.notifyDataSetChanged();
-                            //binding.btm.setSelectedItemId( R.id.billCoustmer);
-                            item.setChecked(true);
-                            produteAdapter.setCount(0);
-                            //
-                            tv.setVisibility(View.GONE);
-                            produteAdapter.notifyDataSetChanged();
-                            break;
-
-                        }
-                        else
-                        {
-                            Toast.makeText(ProducteViewr.this, R.string.waitMessg, Toast.LENGTH_SHORT).show();
-                            break;
-                        }
-                       // showMessage("hi");
-
-
-                    }
 
                 }
-                return false;
+
             }
+            return false;
         });
 
 
@@ -194,13 +204,7 @@ public class ProducteViewr extends AppCompatActivity implements Serializable , D
 
 
 
-    @Override
-    public void recreate() {
-        super.recreate();
-        finish();
-        startActivity(getIntent());
 
-    }
 
     @Override
     public void onpostiveClicked() {

@@ -2,6 +2,7 @@ package com.example.deliveryapp.FirebaseStore;
 
 
 import android.net.Uri;
+import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -11,12 +12,16 @@ import com.example.deliveryapp.Moudle.userInfo;
 
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.inject.Singleton;
 
 public class GetViewModle extends ViewModel {
 
     public MutableLiveData<ArrayList<ProducteInfo>> prdouctInfi = new MutableLiveData<>();
+    public MutableLiveData<TreeMap<String,Uri> >ListOfImage = new MutableLiveData<>();
+    static public String ErrorMeesg;
     @Singleton
     StrogPage strogPage;
     public GetViewModle() {
@@ -46,6 +51,17 @@ public class GetViewModle extends ViewModel {
             @Override
             public void getingProducted(ArrayList<ProducteInfo> producteInfos) {
                 prdouctInfi.setValue(producteInfos);
+            }
+
+            @Override
+            public void setImage(TreeMap<String, Uri> listOfImages) {
+                ListOfImage.setValue(listOfImages);
+            }
+
+
+            @Override
+            public void GetTheError(String ErrorMessg) {
+                ErrorMeesg=ErrorMessg;
             }
         });
     }
