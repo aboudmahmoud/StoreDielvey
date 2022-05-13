@@ -15,6 +15,8 @@ or
 https://github.com/aboudmahmoud/StoreDielvey/blob/LastChange5/app/release/Store.apk
 
 Feel free to try it and give me feedback 
+
+
 Note 1: Don't enter important data such as the password because I didn't use the Authentication feature of firebase
       So ur data is unprotected( I didn't want to use the feature cause I needed to be aware of passwords because I forget the passwords I set 🤐)ْ 
 Note 2: Please do not post inappropriate photos if you logged in and want to add products (doing this is useless and hurtful to me)
