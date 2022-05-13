@@ -11,6 +11,8 @@ Simple Store
   The application is not intended for commercial or personal use due to the limited membership of Firebase
   the APK: 
 https://drive.google.com/file/d/1XGGNqNJF6NqlbpB5BXqAy56rCES8URRJ/view?fbclid=IwAR0DLuyFejiAG1XtBRj9oPtpyGIi9cSLGXQjJzrWoupZEZV-5qKhZ6kHkno
+or 
+https://github.com/aboudmahmoud/StoreDielvey/blob/LastChange5/app/release/Store.apk
 
 Feel free to try it and give me feedback 
 Note 1: Don't enter important data such as the password because I didn't use the Authentication feature of firebase
