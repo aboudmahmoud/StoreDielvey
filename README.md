@@ -6,9 +6,13 @@ Simple Store
  Details about application building process:
  
  Tools: Android Studio - Firebase 
+ 
  Code: Java
+ 
  Architecture: MVP-MVVM
- UI was a little bit suitable 
+ 
+ UI was a little bit suitable
+ 
  The application is not intended for commercial or personal use due to the limited membership of Firebase
   
   
