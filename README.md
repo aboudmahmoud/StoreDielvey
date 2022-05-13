@@ -1,14 +1,15 @@
 # StoreDielvey
 # android app 
 Simple Store 
-  An application where you can display products
-  No limit(for testing only)
-  Details about application building process:
-        Tools: Android Studio - Firebase 
-       Code: Java
-       Architecture: MVP-MVVM
-  UI was a little bit suitable 
-  The application is not intended for commercial or personal use due to the limited membership of Firebase
+  An application where you can display products No limit(for testing only)
+  
+ Details about application building process:
+ 
+ Tools: Android Studio - Firebase 
+ Code: Java
+ Architecture: MVP-MVVM
+ UI was a little bit suitable 
+ The application is not intended for commercial or personal use due to the limited membership of Firebase
   
   
   the APK: 
