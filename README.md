@@ -34,4 +34,4 @@ Note 2: Please do not post inappropriate photos if you logged in and want to add
 I didn't want to put a limit on membership like roles for the buyer and roles for the seller to make you try the program comfortably
 
 
-Note 3: the Final version with 89% Firebase Performance in Last Branch 5 , Soon will be more Update also so don't forget to check branches
+Note 3: the Final version with 95% Firebase Performance in Last Branch 5 , Soon will be more Update also so don't forget to check branches
