@@ -35,3 +35,9 @@ I didn't want to put a limit on membership like roles for the buyer and roles fo
 
 
 Note 3: the Final version with 95% Firebase Performance in Last Branch 5 , Soon will be more Update also so don't forget to check branches
+
+Note 4:
+
+master bransh is when closed the project for other one 
+new work is geting back to project and removing all legacy and deprecated methods  and using the MVP + MVVM 
+and the other change to make app work good and fast with no bugs 
